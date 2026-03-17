@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>La Totuma Caliente - Tarjeta Digital</title>
+    <title>La Totuma Caliente - Tarjeta Digital Pro</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
@@ -12,6 +12,7 @@
             --acento: #e63946;
             --texto-claro: #ffffff;
             --fondo: #f4f4f4;
+            --borde-imagen: #fbb034; /* Color naranja/amarillo de los bordes */
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
@@ -48,6 +49,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
         }
 
         .logo-container img {
@@ -55,8 +57,57 @@
             object-fit: contain;
         }
 
-        /* Contenido */
-        .content { padding: 20px; }
+        /* SECCIÓN DE IMÁGENES DE COMIDA */
+        .food-gallery {
+            padding: 20px;
+            background: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        /* Plato Principal Centrado */
+        .main-dish {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 5px solid var(--borde-imagen);
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+
+        .main-dish img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Platos Secundarios (Lados) */
+        .side-dishes {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            width: 100%;
+        }
+
+        .side-dish {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 4px solid var(--borde-imagen);
+            overflow: hidden;
+            box-shadow: 0 5px 10px rgba(0,0,0,0.15);
+        }
+
+        .side-dish img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Contenido de Texto */
+        .content { padding: 0 20px 20px 20px; }
         h1 { font-size: 24px; color: var(--primario); margin-bottom: 5px; text-transform: uppercase; }
         .slogan { color: #666; font-style: italic; margin-bottom: 20px; font-size: 14px; }
 
@@ -82,12 +133,13 @@
             border-radius: 50px;
             text-decoration: none;
             font-weight: bold;
-            transition: transform 0.3s;
+            transition: transform 0.3s, box-shadow 0.3s;
             color: white;
             gap: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
 
-        .btn:active { transform: scale(0.95); }
+        .btn:active { transform: scale(0.95); box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
 
         .btn-whatsapp { background-color: #25D366; }
         .btn-call { background-color: #007bff; }
@@ -100,6 +152,7 @@
             padding: 15px;
             font-size: 11px;
             color: #777;
+            border-top: 1px solid #ddd;
         }
 
         /* Bloqueo por Vencimiento */
@@ -122,12 +175,27 @@
         <div id="bloqueo">
             <i class="fas fa-exclamation-triangle" style="font-size: 50px; color: orange;"></i>
             <h2 style="margin-top:20px">Suscripción Expirada</h2>
-            <p style="text-align:center">Por favor, contacte al desarrollador para renovar su tarjeta digital.</p>
+            <p style="text-align:center; margin-top: 10px;">Por favor, contacte al desarrollador para renovar su tarjeta digital.</p>
         </div>
 
         <div class="header">
             <div class="logo-container">
-                <img src="https://i.imgur.com/u9oR2mC.png" alt="Logo La Totuma Caliente">
+                <img src="https://i.imgur.com/EjemploLogoLimpio.png" alt="Logo La Totuma Caliente">
+            </div>
+        </div>
+
+        <div class="food-gallery">
+            <div class="main-dish">
+                <img src="https://i.imgur.com/EjemploSancocho.jpg" alt="Sancocho de Res La Totuma">
+            </div>
+
+            <div class="side-dishes">
+                <div class="side-dish">
+                    <img src="https://i.imgur.com/EjemploYuca.jpg" alt="Yuca con Chicharrón">
+                </div>
+                <div class="side-dish">
+                    <img src="https://i.imgur.com/EjemploSopa.jpg" alt="Sopa Tradicional">
+                </div>
             </div>
         </div>
 
@@ -136,8 +204,8 @@
             <p class="slogan">"Comida Casera y Tradicional"</p>
 
             <div class="info-box">
-                <p><strong><i class="fas fa-utensils"></i> Hoy:</strong> Sancocho de Res, Posta, Sobrebarriga y más.</p>
-                <p><strong><i class="fas fa-map-marker-alt"></i></strong> Plaza de los Containers, Caucasia, Ant.</p>
+                <p><strong><i class="fas fa-utensils"></i> Menú:</strong> Sancocho, Posta, Sobrebarriga, Pescados.</p>
+                <p><strong><i class="fas fa-map-marker-alt"></i></strong> Plaza de los Containers, Caucasia.</p>
             </div>
 
             <div class="btn-container">
@@ -147,10 +215,10 @@
                 <a href="tel:+573147466686" class="btn btn-call">
                     <i class="fas fa-phone-alt"></i> LLAMAR AHORA
                 </a>
-                <a href="https://www.google.com/maps/search/Plaza+de+los+containers+Caucasia" target="_blank" class="btn btn-map">
+                <a href="https://goo.gl/maps/TuEnlaceAGoogleMapsReal" target="_blank" class="btn btn-map">
                     <i class="fas fa-route"></i> CÓMO LLEGAR
                 </a>
-                <a href="#" class="btn btn-pdf">
+                <a href="https://tuweb.com/menu.pdf" class="btn btn-pdf" target="_blank">
                     <i class="fas fa-file-pdf"></i> VER MENÚ DIGITAL
                 </a>
             </div>
@@ -170,11 +238,6 @@
 
         if (fechaActual > fechaVencimiento) {
             document.getElementById('bloqueo').style.display = 'flex';
-        }
-
-        // Función para guardar como contacto (Simulado)
-        function guardarContacto() {
-            alert("Descargando archivo de contacto VCF...");
         }
     </script>
 </body>
